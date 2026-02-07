@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mood Emoji</title>
+  <style>
+    /* === CSS: This is where we make things look pretty === */
+
+    /* The whole page */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      transition: background-color 0.5s;
+    }
+
+    /* The big emoji */
+    #emoji {
+      font-size: 150px;
+      margin-bottom: 20px;
+    }
+
+    /* The mood text */
+    #mood-text {
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      margin-bottom: 40px;
+    }
+
+    /* The row of buttons */
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Each button */
+    .mood-btn {
+      font-size: 20px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+
+    /* Make buttons bounce when you hover */
+    .mood-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* A different color for each button */
+    .happy    { background-color: #FFD93D; color: #333; }
+    .sleepy   { background-color: #6C5CE7; }
+    .sad      { background-color: #74B9FF; }
+    .angry    { background-color: #FF6B6B; }
+    .excited  { background-color: #FF9FF3; }
+    .cool     { background-color: #00D2D3; }
+    .confused { background-color: #FF8C00; }
+  </style>
+</head>
+<body>
+
+  <!-- === HTML: These are the building blocks === -->
+
+  <div id="emoji">😊</div>
+  <div id="mood-text">How are you feeling?</div>
+
+  <div class="buttons">
+    <button class="mood-btn happy"   onclick="changeMood('😊', 'Happy!',   '#FFD93D')">Happy</button>
+    <button class="mood-btn sleepy"  onclick="changeMood('😴', 'Sleepy!',  '#6C5CE7')">Sleepy</button>
+    <button class="mood-btn sad"     onclick="changeMood('😢', 'Sad!',     '#74B9FF')">Sad</button>
+    <button class="mood-btn angry"   onclick="changeMood('😡', 'Angry!',   '#FF6B6B')">Angry</button>
+    <button class="mood-btn excited" onclick="changeMood('🤩', 'Excited!', '#FF9FF3')">Excited</button>
+    <button class="mood-btn cool"    onclick="changeMood('😎', 'Cool!',    '#00D2D3')">Cool</button>
+    <button class="mood-btn confused" onclick="changeMood('😕', 'Confused!', '#FF8C00')">Confused</button>
+  </div>
+
+  <!-- === JavaScript: The magic that makes clicks do things === -->
+  <script>
+    function changeMood(emoji, text, color) {
+      document.getElementById('emoji').textContent = emoji;
+      document.getElementById('mood-text').textContent = text;
+      document.body.style.backgroundColor = color;
+    }
+  </script>
+
+</body>
+</html>
